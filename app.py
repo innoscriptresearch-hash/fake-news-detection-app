@@ -1,4 +1,44 @@
 import streamlit as st
+
+# =====================================
+# LOGIN AUTHENTICATION SYSTEM
+# =====================================
+
+def check_login():
+
+    # store login state
+    if "authenticated" not in st.session_state:
+        st.session_state.authenticated = False
+
+    # if already logged in → continue
+    if st.session_state.authenticated:
+        return True
+
+    # Login UI
+    st.title("🔐 Secure Login Required")
+
+    username = st.text_input("User ID")
+    password = st.text_input("Password", type="password")
+
+    login_btn = st.button("Login")
+
+    if login_btn:
+
+        # CHANGE THESE CREDENTIALS
+        if username == "vinay" and password == "1234":
+            st.session_state.authenticated = True
+            st.rerun()
+        else:
+            st.error("❌ Invalid credentials")
+
+    st.stop()   # stop app until login
+
+
+# call login first
+check_login()
+
+
+import streamlit as st
 import pandas as pd
 import numpy as np
 import torch
@@ -1171,6 +1211,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
