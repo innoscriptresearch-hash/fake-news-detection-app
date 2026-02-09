@@ -130,11 +130,11 @@ class EnhancedMultimodalBERT(nn.Module):
 
 class ModelManager:
     def __init__(self):
-        self.current_dir = os.getcwd()
-        self.base_dir = os.path.join(self.current_dir, "fake_news_detection")
+        self.base_dir = os.getcwd()   # use repo root directly
         self.models_dir = os.path.join(self.base_dir, "saved_models")
         self.results_dir = os.path.join(self.base_dir, "results")
         self.model_dir = os.path.join(self.models_dir, "microsoft_deberta-v3-base_epoch_4")
+
         
     def check_model_exists(self):
         """Verify all model files are available"""
@@ -181,7 +181,8 @@ class ModelManager:
                 metadata = json.load(f)
             
             # Load tokenizer
-            tokenizer = AutoTokenizer.from_pretrained(self.model_dir)
+            tokenizer = AutoTokenizer.from_pretrained("microsoft/deberta-v3-base")
+
             
             # Create and load model
             model = EnhancedMultimodalBERT("microsoft/deberta-v3-base", 11)
@@ -1215,6 +1216,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
