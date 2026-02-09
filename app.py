@@ -68,6 +68,29 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+# =====================================
+# HIDE STREAMLIT TOP BAR & MENU
+# =====================================
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}          /* hamburger menu */
+footer {visibility: hidden;}            /* footer */
+header {visibility: hidden;}            /* top header bar */
+[data-testid="stToolbar"] {display:none;}  /* share/star/github */
+[data-testid="stDecoration"] {display:none;}
+[data-testid="stStatusWidget"] {display:none;}
+</style>
+"""
+
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+[data-testid="stToolbar"] {display:none;}
+</style>
+"""
 
 # Custom CSS for professional styling
 st.markdown("""
@@ -1218,6 +1241,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
