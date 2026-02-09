@@ -29,7 +29,7 @@ st.set_page_config(
 class EnhancedMultimodalBERT(nn.Module):
     def __init__(self, bert_model_name, num_other_features=11, num_classes=2):
         super().__init__()
-        self.bert = AutoModel.from_pretrained(bert_model_name)
+        self.bert = AutoModel.from_pretrained("microsoft/deberta-v3-base"))
         self.dropout = nn.Dropout(0.2)
 
         self.metadata_processor = nn.Sequential(
@@ -81,7 +81,7 @@ class ModelManager:
         )
 
     def load_model(self):
-        tokenizer = AutoTokenizer.from_pretrained(self.model_dir)
+        tokenizer = AutoTokenizer.from_pretrained("microsoft/deberta-v3-base"))
         model = EnhancedMultimodalBERT("microsoft/deberta-v3-base")
         model.load_state_dict(torch.load(
             os.path.join(self.model_dir, "model_weights.pt"),
@@ -208,3 +208,4 @@ st.markdown(
     "Model: DeBERTa-v3-base | Dataset: LIAR | "
     "Accuracy: 65.11% | Improvement over SOTA: 9.32%"
 )
+
