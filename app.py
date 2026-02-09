@@ -1,3 +1,5 @@
+
+import streamlit as st
 # Hide Streamlit floating footer buttons (bottom right)
 st.markdown("""
 <style>
@@ -21,7 +23,7 @@ footer {visibility: hidden;}
 
 
 
-import streamlit as st
+
 
 # =====================================
 # LOGIN AUTHENTICATION SYSTEM
@@ -1283,6 +1285,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
