@@ -103,8 +103,6 @@ header {
 """, unsafe_allow_html=True)
 
 
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
 # hide_streamlit_style = """
 # <style>
 # #MainMenu {visibility: hidden;}
@@ -1262,6 +1260,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
