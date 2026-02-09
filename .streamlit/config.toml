@@ -1,3 +1,4 @@
-# [ui]
-# hideTopBar = true
-# hideSidebarNav = true
+[ui]
+hideTopBar = true
+hideSidebarNav = true
+hideBottemBar = true
