@@ -22,6 +22,13 @@ def check_login():
 
     login_btn = st.button("Login")
 
+    USERS = {
+    "vinay": "fnd@2026",
+    "swati": "fnd@2026",
+    "Jitendra":"fnd@2026"
+}
+
+
     if login_btn:
 
         # CHANGE THESE CREDENTIALS
@@ -1211,6 +1218,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
