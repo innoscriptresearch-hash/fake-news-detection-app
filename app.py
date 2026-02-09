@@ -1,51 +1,3 @@
-
-import streamlit as st
-
-# =====================================
-# LOGIN AUTHENTICATION SYSTEM
-# =====================================
-
-def check_login():
-
-    # store login state
-    if "authenticated" not in st.session_state:
-        st.session_state.authenticated = False
-
-    # if already logged in → continue
-    if st.session_state.authenticated:
-        return True
-
-    # Login UI
-    st.title("🔐 Secure Login Required")
-
-    username = st.text_input("User ID")
-    password = st.text_input("Password", type="password")
-
-    login_btn = st.button("Login")
-
-    USERS = {
-    "vinay": "fnd@2026",
-    "swati": "fnd@2026",
-    "Jitendra":"fnd@2026"
-}
-
-
-    if login_btn:
-
-        # CHANGE THESE CREDENTIALS
-        if username in USERS and USERS[username] == password:
-            st.session_state.authenticated = True
-            st.rerun()
-        else:
-            st.error("❌ Invalid credentials")
-
-    st.stop()   # stop app until login
-
-
-# call login first
-check_login()
-
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -173,6 +125,52 @@ st.markdown("""
 # Header
 st.markdown('<h1 class="main-header">🔍 AI Enabled Fake News Detection</h1>', unsafe_allow_html=True)
 st.markdown("### Advanced Fake News Detection System using deberta-v3• State-of-the-Art Accuracy ")
+
+# =====================================
+# LOGIN AUTHENTICATION SYSTEM
+# =====================================
+
+def check_login():
+
+    # store login state
+    if "authenticated" not in st.session_state:
+        st.session_state.authenticated = False
+
+    # if already logged in → continue
+    if st.session_state.authenticated:
+        return True
+
+    # Login UI
+    st.title("🔐 Secure Login Required")
+
+    username = st.text_input("User ID")
+    password = st.text_input("Password", type="password")
+
+    login_btn = st.button("Login")
+
+    USERS = {
+    "vinay": "fnd@2026",
+    "swati": "fnd@2026",
+    "Jitendra":"fnd@2026"
+}
+
+
+    if login_btn:
+
+        # CHANGE THESE CREDENTIALS
+        if username in USERS and USERS[username] == password:
+            st.session_state.authenticated = True
+            st.rerun()
+        else:
+            st.error("❌ Invalid credentials")
+
+    st.stop()   # stop app until login
+
+
+# call login first
+check_login()
+
+
 
 # =======================================
 # MODEL ARCHITECTURE
@@ -1271,6 +1269,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
