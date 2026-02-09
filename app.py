@@ -84,13 +84,13 @@ header {visibility: hidden;}            /* top header bar */
 
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-hide_streamlit_style = """
-<style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-[data-testid="stToolbar"] {display:none;}
-</style>
-"""
+# hide_streamlit_style = """
+# <style>
+# #MainMenu {visibility: hidden;}
+# footer {visibility: hidden;}
+# [data-testid="stToolbar"] {display:none;}
+# </style>
+# """
 
 # Custom CSS for professional styling
 st.markdown("""
@@ -1241,6 +1241,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
