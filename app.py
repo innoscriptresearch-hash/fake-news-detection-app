@@ -69,6 +69,16 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+st.markdown("""
+<style>
+#MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+footer {visibility: hidden;}
+[data-testid="stToolbar"] {display:none;}
+[data-testid="stDecoration"] {display:none;}
+button[kind="secondary"] {display:none;}
+</style>
+""", unsafe_allow_html=True)
 # =====================================
 # FORCE HIDE STREAMLIT CLOUD TOOLBAR
 # =====================================
@@ -1261,6 +1271,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
