@@ -1,0 +1,29 @@
+THESIS RESULTS SUMMARY
+
+RESEARCH CONTRIBUTION:
+Our research demonstrates that multimodal integration of contextual metadata with
+advanced transformer architectures significantly improves fake news detection
+performance on the challenging LIAR dataset.
+
+KEY FINDINGS:
+
+1. PERFORMANCE BREAKTHROUGH:
+   • Previous SOTA (Rout et al., 2025): 0.5956 accuracy
+   • Our DeBERTa-v3-base + Multimodal: 0.6511 accuracy
+   • Absolute Improvement: +0.0555
+   • Relative Improvement: +9.33%
+
+2. METHODOLOGICAL ADVANCEMENT:
+   • Approach: Text + Metadata multimodal fusion
+   • Architecture: DeBERTa-v3-base with attention-based feature integration
+   • Training: 10 epochs with stable convergence
+
+3. COMPREHENSIVE PERFORMANCE:
+   • Precision: 0.6229
+   • Recall: 0.6275
+   • F1-Score: 0.6215
+
+CONCLUSION:
+Our multimodal approach successfully addresses the limitations of text-only methods,
+achieving state-of-the-art performance on the LIAR dataset with a 9.3%
+improvement over existing approaches.
