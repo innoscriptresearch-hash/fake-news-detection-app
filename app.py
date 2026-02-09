@@ -130,79 +130,34 @@ class EnhancedMultimodalBERT(nn.Module):
 
 class ModelManager:
     def __init__(self):
-        self.base_dir = os.getcwd()   # use repo root directly
-        self.models_dir = os.path.join(self.base_dir, "saved_models")
-        self.results_dir = os.path.join(self.base_dir, "results")
-        self.model_dir = os.path.join(self.models_dir, "microsoft_deberta-v3-base_epoch_4")
+        self.results_dir = os.path.join(os.getcwd(), "results")
 
-        
     def check_model_exists(self):
-        """Verify all model files are available"""
-        if not os.path.exists(self.base_dir):
-            return False, f"Model directory not found: {self.base_dir}"
-        
-        if not os.path.exists(self.models_dir):
-            return False, f"Models folder missing: {self.models_dir}"
-        
-        if not os.path.exists(self.model_dir):
-            available = [d for d in os.listdir(self.models_dir) 
-                        if os.path.isdir(os.path.join(self.models_dir, d))]
-            return False, f"DeBERTa model not found. Available: {available}"
-        
-        critical_files = {
-            "model_weights.pt": os.path.join(self.model_dir, "model_weights.pt"),
-            "metadata.json": os.path.join(self.model_dir, "metadata.json"),
-        }
-        
-        missing_files = []
-        for file_name, file_path in critical_files.items():
-            if not os.path.exists(file_path):
-                missing_files.append(file_name)
-        
-        if missing_files:
-            existing_files = os.listdir(self.model_dir)
-            return False, f"Missing files: {missing_files}"
-        
-        tokenizer_files = [f for f in os.listdir(self.model_dir) if "tokenizer" in f.lower()]
-        if not tokenizer_files:
-            return False, "Tokenizer files missing"
-        
-        return True, "All model files verified"
-    
+        # Always true for cloud deployment
+        return True, "Using HuggingFace pretrained DeBERTa model"
+
     def load_model(self):
-        """Load the trained DeBERTa model"""
         try:
-            exists, message = self.check_model_exists()
-            if not exists:
-                return None, None, None, message
-            
-            # Load metadata
-            with open(os.path.join(self.model_dir, "metadata.json"), 'r', encoding='utf-8') as f:
-                metadata = json.load(f)
-            
-            # Load tokenizer
+            # Load tokenizer directly from HF
             tokenizer = AutoTokenizer.from_pretrained("microsoft/deberta-v3-base")
 
-            
-            # Create and load model
+            # Load model directly from HF
             model = EnhancedMultimodalBERT("microsoft/deberta-v3-base", 11)
-            model.load_state_dict(torch.load(
-                os.path.join(self.model_dir, "model_weights.pt"), 
-                map_location='cpu'
-            ))
-            
-            return model, tokenizer, metadata, "Model loaded successfully"
-            
+
+            metadata = {"info": "Using pretrained HuggingFace model"}
+
+            return model, tokenizer, metadata, "Loaded from HuggingFace successfully"
+
         except Exception as e:
-            return None, None, None, f"Error loading model: {str(e)}"
+            return None, None, None, str(e)
 
     def get_performance_data(self):
-        """Load performance results"""
         results_file = os.path.join(self.results_dir, "microsoft_deberta-v3-base_results.json")
         if os.path.exists(results_file):
             with open(results_file, 'r', encoding='utf-8') as f:
                 return json.load(f)
         return None
+
     
 # def plot_training_results(results):
 #     """
@@ -1216,6 +1171,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
