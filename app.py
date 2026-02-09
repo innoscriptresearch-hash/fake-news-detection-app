@@ -69,18 +69,39 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 # =====================================
-# HIDE STREAMLIT TOP BAR & MENU
+# FORCE HIDE STREAMLIT CLOUD TOOLBAR
 # =====================================
-hide_streamlit_style = """
+st.markdown("""
 <style>
-#MainMenu {visibility: hidden;}          /* hamburger menu */
-footer {visibility: hidden;}            /* footer */
-header {visibility: hidden;}            /* top header bar */
-[data-testid="stToolbar"] {display:none;}  /* share/star/github */
-[data-testid="stDecoration"] {display:none;}
-[data-testid="stStatusWidget"] {display:none;}
+
+/* Hide top right toolbar (Share, GitHub, Manage) */
+[data-testid="stToolbar"] {
+    display: none !important;
+}
+
+/* Hide hamburger menu */
+[data-testid="stSidebarNav"] {
+    display: none !important;
+}
+
+/* Hide footer */
+footer {
+    display: none !important;
+}
+
+/* Hide header spacing */
+header {
+    display: none !important;
+}
+
+/* Remove top padding gap */
+.block-container {
+    padding-top: 1rem !important;
+}
+
 </style>
-"""
+""", unsafe_allow_html=True)
+
 
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
@@ -1241,6 +1262,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
