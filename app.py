@@ -32,7 +32,7 @@ def check_login():
     if login_btn:
 
         # CHANGE THESE CREDENTIALS
-        if username == "vinay" and password == "1234":
+        if username in USERS and USERS[username] == password:
             st.session_state.authenticated = True
             st.rerun()
         else:
@@ -1218,6 +1218,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
