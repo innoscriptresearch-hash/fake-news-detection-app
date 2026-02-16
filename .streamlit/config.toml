@@ -2,3 +2,12 @@
 hideTopBar = true
 hideSidebarNav = true
 hideBottemBar = true
+
+[theme]
+base="light"
+primaryColor="#2563eb"
+backgroundColor="#ffffff"
+secondaryBackgroundColor="#f0f2f6"
+textColor="#000000"
+font="sans serif"
+
