@@ -774,16 +774,16 @@ elif app_mode == "🔍 Analyze Content":
                                  ["Government", "Politician", "Journalist", "Expert", "Organization", "Unknown"])
             context = st.text_input("Publication Context", "Official statement")
             
-            st.markdown("**📊 Source Reliability Metrics**")
+            # st.markdown("**📊 Source Reliability Metrics**")
             
-            col_a, col_b = st.columns(2)
-            with col_a:
-                barely_true = st.slider("Rarely Accurate", 0, 10, 2)
-                false_counts = st.slider("Inaccurate Claims", 0, 10, 1)
-            with col_b:
-                half_true = st.slider("Partially Accurate", 0, 10, 3)
-                mostly_true = st.slider("Mostly Accurate", 0, 10, 4)
-            pants_fire = st.slider("Completely False", 0, 10, 0)
+            # col_a, col_b = st.columns(2)
+            # with col_a:
+            #     barely_true = st.slider("Rarely Accurate", 0, 10, 2)
+            #     false_counts = st.slider("Inaccurate Claims", 0, 10, 1)
+            # with col_b:
+            #     half_true = st.slider("Partially Accurate", 0, 10, 3)
+            #     mostly_true = st.slider("Mostly Accurate", 0, 10, 4)
+            # pants_fire = st.slider("Completely False", 0, 10, 0)
         
         # Analysis button
         if st.button("🚀 Verify Authenticity", type="primary", use_container_width=True):
@@ -1271,6 +1271,7 @@ st.markdown("""
     <p style='font-size: 0.8rem;'>Powered by DeBERTa-v3-base • Multimodal Feature Fusion • State-of-the-Art Performance</p>
 </div>
 """, unsafe_allow_html=True)
+
 
 
 
